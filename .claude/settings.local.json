@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(command -v chromium-cli)",
+      "Bash(echo \"exit:$?\")",
+      "Bash(curl -sf http://localhost:3000)",
+      "Bash(break)",
+      "Bash(curl -s -o /tmp/home.html -w \"HTTP %{http_code}\\\\n\" http://localhost:3000)",
+      "Read(//tmp/**)",
+      "Bash(jobs -l)",
+      "Bash(npx tsc *)",
+      "Bash(npx eslint *)",
+      "Bash(npm view *)",
+      "Bash(npm install *)",
+      "Bash(npm audit *)",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{try{const j=JSON.parse\\(d\\);console.log\\(Object.keys\\(j.vulnerabilities||{}\\).map\\(k=>k+': '+j.vulnerabilities[k].severity\\).join\\('\\\\n'\\)\\)}catch\\(e\\){console.log\\(d.slice\\(0,2000\\)\\)}}\\)\")",
+      "Bash(npm run *)",
+      "Bash(curl -sL --max-time 15 -o /tmp/test1.jpg https://picsum.photos/seed/webdev-seo/1200/800)",
+      "Bash(mkdir -p /c/Users/mavsk/AppData/Local/Temp/claude/c--Users-mavsk-Documents-mi-portfolio/dd87c0c7-3a12-4506-8ff9-1a666d89ee69/scratchpad)",
+      "Bash(curl -sL --max-time 20 -o /c/Users/mavsk/AppData/Local/Temp/claude/c--Users-mavsk-Documents-mi-portfolio/dd87c0c7-3a12-4506-8ff9-1a666d89ee69/scratchpad/cover1.jpg https://picsum.photos/seed/freelance-web-workspace/1200/800)",
+      "Bash(curl -sL --max-time 20 -o /c/Users/mavsk/AppData/Local/Temp/claude/c--Users-mavsk-Documents-mi-portfolio/dd87c0c7-3a12-4506-8ff9-1a666d89ee69/scratchpad/cover2.jpg https://picsum.photos/seed/code-screen-react/1200/800)",
+      "Bash(curl -sL --max-time 20 -o /c/Users/mavsk/AppData/Local/Temp/claude/c--Users-mavsk-Documents-mi-portfolio/dd87c0c7-3a12-4506-8ff9-1a666d89ee69/scratchpad/cover3.jpg https://picsum.photos/seed/local-business-seo/1200/800)",
+      "Read(//c/Users/mavsk/AppData/Local/Temp/claude/c--Users-mavsk-Documents-mi-portfolio/dd87c0c7-3a12-4506-8ff9-1a666d89ee69/scratchpad/**)",
+      "Bash(node -e ' *)"
+    ]
+  }
+}
