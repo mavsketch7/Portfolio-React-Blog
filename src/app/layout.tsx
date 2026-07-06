@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Syne, Outfit } from 'next/font/google'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 
 const syne = Syne({
@@ -34,6 +35,7 @@ export default function RootLayout({
           <style>{`.reveal{opacity:1 !important;transform:none !important;}`}</style>
         </noscript>
         {children}
+        <SpeedInsights />
       </body>
     </html>
   )
