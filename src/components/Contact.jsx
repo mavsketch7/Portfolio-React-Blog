@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <div
       id="contacto"
-      className="flex flex-col items-center justify-center gap-6 w-[90vw] h-[50vh] rounded-[16px] text-[var(--color-text)] relative"
+      className="flex flex-col items-center justify-center gap-6 w-[90vw] min-h-[50vh] rounded-[16px] text-[var(--color-text)] relative"
     >
       <Image
         src="/my-durves-image-3-1.webp"

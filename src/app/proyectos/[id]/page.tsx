@@ -33,7 +33,7 @@ export default async function ProjectPage({ params }: Props) {
   const projectLink = hasLiveLink ? liveUrl : githubUrl
 
   return (
-    <div className="w-full h-screen overflow-hidden flex flex-col px-6 lg:px-12 py-6 text-[var(--color-text)]">
+    <div className="w-full flex flex-col px-6 lg:px-12 py-6 text-[var(--color-text)] lg:h-screen lg:overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between">
         <Logo className="w-24 h-8 text-[var(--color-header)]" />
@@ -46,9 +46,13 @@ export default async function ProjectPage({ params }: Props) {
       </div>
 
       {/* Contenido principal */}
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 min-h-0 mt-6">
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 mt-6 lg:min-h-0">
         {/* COLUMNA IZQUIERDA */}
-        <Reveal x={-56} y={0} className="flex flex-col items-start gap-4 min-h-0">
+        <Reveal
+          x={-56}
+          y={0}
+          className="flex flex-col items-start gap-4 lg:min-h-0"
+        >
           <div className="flex items-center gap-4">
             <h1 className="font-title text-2xl lg:text-3xl font-extrabold text-[var(--color-header)] leading-tight">
               {title}
@@ -58,7 +62,7 @@ export default async function ProjectPage({ params }: Props) {
             </span>
           </div>
 
-          <div className="relative w-full flex-1 min-h-0 rounded-lg overflow-hidden">
+          <div className="relative w-full h-64 lg:h-auto lg:flex-1 lg:min-h-0 rounded-lg overflow-hidden">
             <Image
               src={featuredImage}
               alt={title}
@@ -99,7 +103,7 @@ export default async function ProjectPage({ params }: Props) {
           x={56}
           y={0}
           delay={120}
-          className="flex flex-col items-start gap-4 min-h-0 overflow-y-auto"
+          className="flex flex-col items-start gap-4 lg:min-h-0 lg:overflow-y-auto"
         >
           <div className="flex flex-col gap-2 w-full">
             <h2 className="font-title text-xl font-bold text-[var(--color-header)]">

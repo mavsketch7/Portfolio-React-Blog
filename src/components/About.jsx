@@ -4,7 +4,7 @@ import Reveal from '@/components/Reveal'
 
 export default function About() {
   return (
-    <div className="flex flex-col min-[715px]:flex-row items-center justify-center gap-6 w-[90vw] h-[90vh] text-[var(--color-text)] relative">
+    <div className="flex flex-col min-[715px]:flex-row items-center justify-center gap-6 w-[90vw] min-h-[90vh] text-[var(--color-text)] relative py-10 min-[715px]:py-0">
       <Reveal x={-56} y={0} duration={900}>
         <Image
           src="/manu-alba-webdesigner-freelance.webp"

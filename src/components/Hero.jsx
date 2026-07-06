@@ -9,7 +9,7 @@ export default function Hero() {
   const cmsItems = stacks.filter((item) => item.category === 'cms')
 
   return (
-    <div className="flex flex-col items-start justify-center gap-14 w-[90vw] h-[90vh] text-[var(--color-text)] relative ">
+    <div className="flex flex-col items-start justify-center gap-14 w-[90vw] min-h-[90vh] text-[var(--color-text)] relative ">
       <Image
         src="/hero-bg-sized.webp"
         alt="Hero background"
