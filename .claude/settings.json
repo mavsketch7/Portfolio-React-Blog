@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xxd)",
+      "Bash(node \"C:\\\\Users\\\\mavsk\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-mavsk-Documents-mi-portfolio\\\\ff0df2ed-c53b-40e7-a4fe-62cab7d1a1b3\\\\scratchpad\\\\check-projects.js\")",
+      "Bash(rm -f \"C:\\\\Users\\\\mavsk\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-mavsk-Documents-mi-portfolio\\\\ff0df2ed-c53b-40e7-a4fe-62cab7d1a1b3\\\\scratchpad\\\\check-projects.js\" \"C:\\\\Users\\\\mavsk\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-mavsk-Documents-mi-portfolio\\\\ff0df2ed-c53b-40e7-a4fe-62cab7d1a1b3\\\\scratchpad\\\\blog-home.png\" \"C:\\\\Users\\\\mavsk\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-mavsk-Documents-mi-portfolio\\\\ff0df2ed-c53b-40e7-a4fe-62cab7d1a1b3\\\\scratchpad\\\\blog-home2.png\" \"C:\\\\Users\\\\mavsk\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-mavsk-Documents-mi-portfolio\\\\ff0df2ed-c53b-40e7-a4fe-62cab7d1a1b3\\\\scratchpad\\\\blog-index.png\" \"C:\\\\Users\\\\mavsk\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-mavsk-Documents-mi-portfolio\\\\ff0df2ed-c53b-40e7-a4fe-62cab7d1a1b3\\\\scratchpad\\\\projects-home.png\")",
+      "Bash(node -e ' *)",
+      "Bash(node \"C:\\\\Users\\\\mavsk\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-mavsk-Documents-mi-portfolio\\\\ff0df2ed-c53b-40e7-a4fe-62cab7d1a1b3\\\\scratchpad\\\\check-gallery.js\")",
+      "Bash(node \"C:\\\\Users\\\\mavsk\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-mavsk-Documents-mi-portfolio\\\\ff0df2ed-c53b-40e7-a4fe-62cab7d1a1b3\\\\scratchpad\\\\check-button.js\")",
+      "Bash(node -e *)"
+    ]
+  }
+}

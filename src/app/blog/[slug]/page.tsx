@@ -47,7 +47,7 @@ export default async function BlogPostPage({ params }: Props) {
               year: 'numeric',
             })}
           </time>
-          <h1 className="font-title text-2xl lg:text-4xl font-extrabold text-[var(--color-header)] mt-2 mb-6">
+          <h1 className="font-title text-2xl lg:text-3xl font-extrabold text-[var(--color-header)] mt-2 mb-6">
             {post.title}
           </h1>
 

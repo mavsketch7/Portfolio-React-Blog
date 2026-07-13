@@ -101,3 +101,66 @@ body {
   padding-left: 1rem;
   font-style: italic;
 }
+
+/* Contenedor principal del bloque de código */
+pre {
+  background-color: #0f172a; /* Fondo azul noche oscuro */
+  color: #e2e8f0; /* Texto gris claro/blanco */
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+
+  /* --- CONTROL DE SCROLL Y ALTURA --- */
+  max-height: 400px; /* Limita la altura del cuadro (puedes cambiarlo a tu gusto, ej: 450px o 30rem) */
+  overflow-y: auto; /* Scroll vertical si el código es muy largo */
+  overflow-x: auto; /* Scroll horizontal si las líneas son muy anchas */
+
+  margin: 1.5rem 0;
+  position: relative;
+  border: 1px solid #1e293b;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Tipografía del código */
+pre code {
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Pequeña etiqueta visual arriba a la derecha que indica que es código */
+pre::before {
+  content: 'Code';
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  background-color: #0f172a; /* Mismo fondo para que no se mezcle con el código al hacer scroll */
+  padding-left: 0.5rem;
+  z-index: 5;
+}
+
+/* Personalización de las barras de desplazamiento (Scrollbars) */
+pre::-webkit-scrollbar {
+  width: 8px; /* Ancho de la barra vertical */
+  height: 8px; /* Alto de la barra horizontal */
+}
+pre::-webkit-scrollbar-track {
+  background: #0f172a;
+  border-radius: 0.5rem;
+}
+pre::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+pre::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}

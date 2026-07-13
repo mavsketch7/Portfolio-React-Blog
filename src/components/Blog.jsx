@@ -28,18 +28,18 @@ export default function Blog() {
           <Reveal key={post.slug} as="li" delay={Math.min(index * 80, 240)}>
             <article className="flex flex-col gap-3 rounded-lg overflow-hidden border border-[var(--foreground)] h-full">
               {post.cover && (
-                <div className="relative w-full h-40">
+                <div className="relative w-full h-60">
                   <Image
                     src={post.cover}
                     alt=""
                     fill
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover"
+                    className="object-cover object-top"
                   />
                 </div>
               )}
-              <div className="flex flex-col gap-2 p-4">
+              <div className="flex flex-col gap-2 p-4 flex-1">
                 <time
                   dateTime={post.date}
                   className="text-xs uppercase text-[var(--color-text)]"
@@ -50,17 +50,20 @@ export default function Blog() {
                     year: 'numeric',
                   })}
                 </time>
-                <h4 className="font-title text-lg font-[700]">
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="hover:underline"
-                  >
+                <h4 className="font-title text-lg font-[700] line-clamp-2">
+                  <Link href={`/blog/${post.slug}`} className="hover:underline">
                     {post.title}
                   </Link>
                 </h4>
-                <p className="text-sm text-[var(--color-text)]">
+                <p className="text-sm text-[var(--color-text)] line-clamp-3 flex-1">
                   {post.excerpt}
                 </p>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="text-sm font-[700] hover:underline mt-1 self-start"
+                >
+                  Leer más →
+                </Link>
               </div>
             </article>
           </Reveal>

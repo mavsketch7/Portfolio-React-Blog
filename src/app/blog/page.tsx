@@ -27,7 +27,7 @@ export default function BlogIndexPage() {
         </Link>
       </div>
 
-      <main className="mt-10 max-w-3xl mx-auto w-full flex-1">
+      <main className="mt-10 max-w-3xl mx-auto w-full flex-1 mb-[40px]">
         <h1 className="font-title text-2xl lg:text-4xl font-extrabold text-[var(--color-header)] mb-8 text-center">
           Blog
         </h1>

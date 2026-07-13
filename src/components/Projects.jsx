@@ -22,6 +22,7 @@ export default function Projects() {
         {projectsdata.map((project, index) => (
           <Reveal
             key={project.id}
+            className="h-full"
             delay={Math.min(index * 80, MAX_STAGGER_DELAY)}
           >
             <ProjectCard project={project} />
