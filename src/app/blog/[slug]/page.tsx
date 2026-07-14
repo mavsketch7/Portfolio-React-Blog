@@ -6,6 +6,7 @@ import Logo from '@/assets/manualbawebdesigner-logo.svg'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
 import Reveal from '@/components/Reveal'
 import Footer from '@/components/Footer'
+import ThemeToggle from '@/components/ThemeToggle'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -22,13 +23,18 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <div className="w-full min-h-screen flex flex-col px-6 lg:px-12 py-6 text-[var(--color-text)]">
       <div className="flex items-center justify-between">
-        <Logo className="w-24 h-8 text-[var(--color-header)]" />
-        <Link
-          href="/blog"
-          className="flex items-center gap-2 text-base font-extrabold text-[var(--color-header)] hover:underline"
-        >
-          ← Go Back
+        <Link href="/" aria-label="Ir al inicio">
+          <Logo className="w-24 h-8 text-[var(--color-header)]" />
         </Link>
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
+          <Link
+            href="/blog"
+            className="flex items-center gap-2 text-base font-extrabold text-[var(--color-header)] hover:underline"
+          >
+            ← Go Back
+          </Link>
+        </div>
       </div>
 
       <Reveal
@@ -69,7 +75,7 @@ export default async function BlogPostPage({ params }: Props) {
               {post.tags.map((tag) => (
                 <li
                   key={tag}
-                  className="text-xs bg-[var(--foreground)] text-white px-2 py-1 rounded-2xl"
+                  className="text-xs bg-[var(--color-accent)] text-white px-2 py-1 rounded-2xl"
                 >
                   {tag}
                 </li>

@@ -15,8 +15,10 @@ export default function Hero() {
         alt="Hero background"
         fill
         priority
+        fetchPriority="high"
+        quality={60}
         sizes="100vw"
-        className=" -z-10 opacity-70"
+        className="-z-10 object-cover opacity-70"
       />
       <Reveal trigger="load" duration={800}>
         <Logo className="w-32 h-32 text-[var(--color-header)]" />
@@ -34,18 +36,28 @@ export default function Hero() {
         className="flex flex-col gap-6  md:flex-row md:gap-20 font-sans font-light text-[var(--color-text)]  origin-left"
       >
         <div className="flex items-center gap-4 md:gap-7">
-          <h3 className="[writing-mode:vertical-rl] rotate-180">stacks</h3>
+          <span className="[writing-mode:vertical-rl] rotate-180">stacks</span>
           <div className="flex gap-4 md:gap-7">
             {stackItems.map(({ name, icon: Icon, color }) => (
-              <Icon key={name} className={ICON_SIZE} style={{ color }} />
+              <Icon
+                key={name}
+                className={ICON_SIZE}
+                style={{ color }}
+                aria-label={name}
+              />
             ))}
           </div>
         </div>
         <div className="flex items-center gap-4 md:gap-7">
-          <h3 className="[writing-mode:vertical-rl] rotate-180">CMS</h3>
+          <span className="[writing-mode:vertical-rl] rotate-180">CMS</span>
           <div className="flex gap-4 md:gap-7">
             {cmsItems.map(({ name, icon: Icon, color }) => (
-              <Icon key={name} className={ICON_SIZE} style={{ color }} />
+              <Icon
+                key={name}
+                className={ICON_SIZE}
+                style={{ color }}
+                aria-label={name}
+              />
             ))}
           </div>
         </div>

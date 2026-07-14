@@ -1,10 +1,14 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
-  --foreground: #fdf9f3;
+  --foreground: #0033a0;
   --color-text: #3a3a3a;
   --color-header: #0033a0;
+  --color-accent: #0033a0;
+  --color-surface: #ffffff;
+  color-scheme: light;
 }
 
 @theme {
@@ -14,19 +18,38 @@
   --font-title: var(--font-syne);
 }
 
+.dark {
+  --background: #1b2333;
+  --foreground: #8ba3e8;
+  --color-text: #c5cde0;
+  --color-header: #8ba3e8;
+  --color-accent: #2f5bb8;
+  --color-surface: #242c40;
+  color-scheme: dark;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #fdf9f3;
-    --foreground: #0033a0;
+  :root:not(.light) {
+    --background: #1b2333;
+    --foreground: #8ba3e8;
+    --color-text: #c5cde0;
+    --color-header: #8ba3e8;
+    --color-accent: #2f5bb8;
+    --color-surface: #242c40;
+    color-scheme: dark;
   }
+}
+
+.card-surface {
+  background: var(--color-surface);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  gap: 1rem;
-  display: flex;
-  align-items: center;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 @keyframes reveal-in {

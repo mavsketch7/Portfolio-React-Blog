@@ -26,7 +26,7 @@ export default function Blog() {
       <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
         {posts.map((post, index) => (
           <Reveal key={post.slug} as="li" delay={Math.min(index * 80, 240)}>
-            <article className="flex flex-col gap-3 rounded-lg overflow-hidden border border-[var(--foreground)] h-full">
+            <article className="card-surface flex flex-col gap-3 rounded-lg overflow-hidden border border-[var(--foreground)] h-full">
               {post.cover && (
                 <div className="relative w-full h-60">
                   <Image
@@ -72,7 +72,7 @@ export default function Blog() {
 
       <Link
         href="/blog"
-        className="text-sm border border-[var(--foreground)] px-4 py-2 rounded hover:bg-[var(--foreground)] hover:text-white transition-colors duration-300 mt-4"
+        className="text-sm border border-[var(--foreground)] px-4 py-2 rounded hover:bg-[var(--color-accent)] hover:text-white transition-colors duration-300 mt-4"
       >
         Ver todas las entradas
       </Link>

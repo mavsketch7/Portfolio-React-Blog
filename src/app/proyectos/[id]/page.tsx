@@ -6,6 +6,7 @@ import Logo from '@/assets/manualbawebdesigner-logo.svg'
 import Reveal from '@/components/Reveal'
 import ProjectGallery from '@/components/ProjectGallery'
 import Footer from '@/components/Footer'
+import ThemeToggle from '@/components/ThemeToggle'
 
 type Props = {
   params: Promise<{ id: string }>
@@ -38,13 +39,18 @@ export default async function ProjectPage({ params }: Props) {
     <div className="w-full flex flex-col px-6 lg:px-12 py-6 text-[var(--color-text)] lg:h-screen lg:overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <Logo className="w-24 h-8 text-[var(--color-header)]" />
-        <Link
-          href="/"
-          className="flex items-center gap-2 text-base font-extrabold text-[var(--color-header)] hover:underline"
-        >
-          ← Go Back
+        <Link href="/" aria-label="Ir al inicio">
+          <Logo className="w-24 h-8 text-[var(--color-header)]" />
         </Link>
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
+          <Link
+            href="/"
+            className="flex items-center gap-2 text-base font-extrabold text-[var(--color-header)] hover:underline"
+          >
+            ← Go Back
+          </Link>
+        </div>
       </div>
 
       {/* Contenido principal */}
@@ -59,7 +65,7 @@ export default async function ProjectPage({ params }: Props) {
             <h1 className="font-title text-2xl lg:text-3xl font-extrabold text-[var(--color-header)] leading-tight">
               {title}
             </h1>
-            <span className="bg-[var(--color-header)] text-white text-xs uppercase tracking-wide rounded-full px-4 py-2 whitespace-nowrap">
+            <span className="bg-[var(--color-accent)] text-white text-xs uppercase tracking-wide rounded-full px-4 py-2 whitespace-nowrap">
               ⚙ {type}
             </span>
           </div>
@@ -80,7 +86,7 @@ export default async function ProjectPage({ params }: Props) {
               href={projectLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-fit flex items-center gap-2 bg-[var(--color-header)] text-white text-sm rounded-full px-6 py-3 hover:opacity-90 transition-opacity duration-300"
+              className="w-fit flex items-center gap-2 bg-[var(--color-accent)] text-white text-sm rounded-full px-6 py-3 hover:opacity-90 transition-opacity duration-300"
             >
               <svg
                 viewBox="0 0 352 512"

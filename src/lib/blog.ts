@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import { marked } from 'marked'
 
 const POSTS_DIR = path.join(process.cwd(), 'content/blog')
+const SLUG_PATTERN = /^[a-zA-Z0-9-]+$/
 
 export type BlogPostMeta = {
   slug: string
@@ -45,11 +46,15 @@ export function getAllPosts(): BlogPostMeta[] {
 }
 
 export function getPostBySlug(slug: string): BlogPost | null {
+  if (!SLUG_PATTERN.test(slug)) return null
+
   const filePath = path.join(POSTS_DIR, `${slug}.md`)
+  if (!filePath.startsWith(POSTS_DIR + path.sep)) return null
   if (!fs.existsSync(filePath)) return null
 
   const raw = fs.readFileSync(filePath, 'utf8')
   const { data, content } = matter(raw)
+  const html = marked.parse(content, { async: false }) as string
 
   return {
     slug,
@@ -58,6 +63,8 @@ export function getPostBySlug(slug: string): BlogPost | null {
     excerpt: data.excerpt,
     cover: data.cover,
     tags: data.tags,
-    contentHtml: marked.parse(content, { async: false }),
+    // Inline images in post bodies bypass next/image, so give the
+    // browser a hint to defer offscreen ones instead of blocking paint.
+    contentHtml: html.replace(/<img /g, '<img loading="lazy" decoding="async" '),
   }
 }

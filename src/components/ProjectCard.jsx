@@ -11,9 +11,10 @@ function truncateDescription(text, limit = DESCRIPTION_LIMIT) {
 
 export default function ProjectCard({ project }) {
   const { id, title, description, featuredImage, liveUrl, stack } = project
+  const hasLiveUrl = Boolean(liveUrl) && liveUrl !== '#'
 
   return (
-    <div className="flex h-full flex-col gap-3 rounded-lg overflow-hidden border border-[var(--foreground)]">
+    <div className="card-surface flex h-full flex-col gap-3 rounded-lg overflow-hidden border border-[var(--foreground)]">
       <div className="relative w-full h-64 shrink-0">
         <Image
           src={featuredImage}
@@ -33,26 +34,28 @@ export default function ProjectCard({ project }) {
           {stack.map((stackItem) => (
             <span
               key={stackItem}
-              className="text-xs bg-[var(--foreground)] text-white px-2 py-1 rounded-2xl"
+              className="text-xs bg-[var(--color-accent)] text-white px-2 py-1 rounded-2xl"
             >
               {stackItem}
             </span>
           ))}
         </div>
         <div className="flex gap-2 mt-auto">
-          {liveUrl && (
+          {hasLiveUrl && (
             <a
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm w-[50%] border border-[var(--foreground)] px-3 py-1 rounded hover:bg-[var(--foreground)] hover:text-white transition-colors duration-300 text-center"
+              className="text-sm w-1/2 border border-[var(--foreground)] px-3 py-1 rounded hover:bg-[var(--color-accent)] hover:text-white transition-colors duration-300 text-center"
             >
               Ver livepreview
             </a>
           )}
           <Link
             href={`/proyectos/${id}`}
-            className="text-sm w-[50%] border border-[var(--foreground)] px-3 py-1 rounded hover:bg-[var(--foreground)] hover:text-white transition-colors duration-300 text-center"
+            className={`text-sm border border-[var(--foreground)] px-3 py-1 rounded hover:bg-[var(--color-accent)] hover:text-white transition-colors duration-300 text-center ${
+              hasLiveUrl ? 'w-1/2' : 'w-full'
+            }`}
           >
             Más info
           </Link>

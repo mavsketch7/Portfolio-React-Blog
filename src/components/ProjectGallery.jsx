@@ -1,11 +1,34 @@
 'use client'
 
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import Image from 'next/image'
 
 export default function ProjectGallery({ images, title }) {
-  const [selectedImage, setSelectedImage] = useState(null)
+  const [selectedIndex, setSelectedIndex] = useState(null)
+
+  const showPrev = useCallback(() => {
+    setSelectedIndex((i) =>
+      i === null ? i : (i - 1 + images.length) % images.length,
+    )
+  }, [images.length])
+
+  const showNext = useCallback(() => {
+    setSelectedIndex((i) => (i === null ? i : (i + 1) % images.length))
+  }, [images.length])
+
+  useEffect(() => {
+    if (selectedIndex === null) return
+
+    function handleKeyDown(event) {
+      if (event.key === 'ArrowLeft') showPrev()
+      else if (event.key === 'ArrowRight') showNext()
+      else if (event.key === 'Escape') setSelectedIndex(null)
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [selectedIndex, showPrev, showNext])
 
   if (!images || images.length === 0) return null
 
@@ -16,7 +39,7 @@ export default function ProjectGallery({ images, title }) {
           <div
             key={img}
             className="group relative w-full h-32 rounded-lg overflow-hidden border border-[var(--foreground)] cursor-pointer"
-            onClick={() => setSelectedImage(img)}
+            onClick={() => setSelectedIndex(index)}
           >
             <Image
               src={img}
@@ -31,24 +54,55 @@ export default function ProjectGallery({ images, title }) {
         ))}
       </div>
 
-      {selectedImage &&
+      {selectedIndex !== null &&
         createPortal(
           <div
             className="fixed inset-0 z-[60] flex items-center justify-center bg-black/90 p-6 cursor-pointer"
-            onClick={() => setSelectedImage(null)}
+            onClick={() => setSelectedIndex(null)}
           >
             <button
               type="button"
               aria-label="Cerrar"
               className="absolute top-6 right-6 text-white text-4xl leading-none cursor-pointer"
-              onClick={() => setSelectedImage(null)}
+              onClick={() => setSelectedIndex(null)}
             >
               ×
             </button>
+
+            {images.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  aria-label="Imagen anterior"
+                  className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 text-white text-5xl leading-none cursor-pointer p-2 hover:opacity-70 transition-opacity"
+                  onClick={(event) => {
+                    event.stopPropagation()
+                    showPrev()
+                  }}
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  aria-label="Imagen siguiente"
+                  className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 text-white text-5xl leading-none cursor-pointer p-2 hover:opacity-70 transition-opacity"
+                  onClick={(event) => {
+                    event.stopPropagation()
+                    showNext()
+                  }}
+                >
+                  ›
+                </button>
+                <p className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-sm">
+                  {selectedIndex + 1} / {images.length}
+                </p>
+              </>
+            )}
+
             <div className="relative w-full h-full max-w-5xl max-h-[85vh]">
               <Image
-                src={selectedImage}
-                alt={title}
+                src={images[selectedIndex]}
+                alt={`${title} - imagen ${selectedIndex + 1}`}
                 fill
                 sizes="90vw"
                 className="object-contain"

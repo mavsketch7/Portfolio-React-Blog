@@ -33,7 +33,7 @@ export default function About() {
           {stacks.map(({ name }) => (
             <span
               key={name}
-              className="text-xs border border-[var(--foreground)] text-[var(--foreground)] px-2 py-1  mr-2 mb-2 inline-block uppercase hover:bg-[var(--foreground)] hover:text-white transition-colors duration-300 text-center"
+              className="text-xs border border-[var(--foreground)] text-[var(--foreground)] px-2 py-1  mr-2 mb-2 inline-block uppercase hover:bg-[var(--color-accent)] hover:text-white transition-colors duration-300 text-center"
             >
               {name}
             </span>
