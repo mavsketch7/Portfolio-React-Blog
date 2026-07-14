@@ -18,7 +18,7 @@ export default function Hero() {
         fetchPriority="high"
         quality={60}
         sizes="100vw"
-        className="-z-10 object-cover opacity-70"
+        className="-z-10 object-fit opacity-70"
       />
       <Reveal trigger="load" duration={800}>
         <Logo className="w-32 h-32 text-[var(--color-header)]" />
