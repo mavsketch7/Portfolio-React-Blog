@@ -23,7 +23,7 @@ export default function Hero() {
       <Reveal trigger="load" duration={800}>
         <Logo className="w-32 h-32 text-[var(--color-header)]" />
         <h1 className="font-title text-4xl font-extrabold md:text-5xl lg:text-6xl">
-          <span className="block font-sans font-light uppercase text-xs text-[var(--color-header)]">
+          <span className="block font-sans font-light uppercase text-lg text-[var(--color-header)]">
             Web Designer - Freelance
           </span>
           Manu Alba

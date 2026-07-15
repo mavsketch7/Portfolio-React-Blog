@@ -12,7 +12,7 @@ export default function Blog() {
 
   return (
     <div className="flex flex-col items-start justify-center gap-2 w-[90vw] relative">
-      <Reveal as="h2" className="text-[var(--color-text)] text-xs">
+      <Reveal as="h2" className="text-[var(--color-text)] text-lg">
         BLOG
       </Reveal>
       <Reveal

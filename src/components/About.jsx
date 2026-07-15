@@ -16,7 +16,7 @@ export default function About() {
         />
       </Reveal>
       <Reveal delay={150} className="flex flex-col gap-6 max-w-[600px]">
-        <h2 className="text-[var(--color-text)] text-xs">SOBRE MI</h2>
+        <h2 className="text-[var(--color-text)] text-lg">SOBRE MI</h2>
         <h3 className="font-title text-lg font-[700] lg:text-5xl mb-8 text-[var(--color-header)]">
           Hola, Soy<br></br>Manu Alba
         </h3>
