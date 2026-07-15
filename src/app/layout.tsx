@@ -28,9 +28,7 @@ const THEME_INIT_SCRIPT = `
 (function () {
   try {
     var stored = localStorage.getItem('theme');
-    var isDark =
-      stored === 'dark' ||
-      (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    var isDark = stored === 'dark';
     document.documentElement.classList.toggle('dark', isDark);
     document.documentElement.classList.toggle('light', !isDark);
   } catch (e) {}
