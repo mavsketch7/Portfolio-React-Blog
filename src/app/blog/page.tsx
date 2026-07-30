@@ -26,9 +26,9 @@ export default function BlogIndexPage() {
           <ThemeToggle />
           <Link
             href="/"
-            className="flex items-center gap-2 text-base font-extrabold text-[var(--color-header)] hover:underline"
+            className="flex items-center gap-2 text-2xl font-extrabold text-[var(--color-header)] hover:underline"
           >
-            ← Go Back
+            🢀 Go Back
           </Link>
         </div>
       </div>

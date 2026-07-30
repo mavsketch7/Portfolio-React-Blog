@@ -14,7 +14,7 @@ export default function NavbarProjects() {
       </Link>
       <Link
         href="/"
-        className="flex items-center gap-2 text-red hover:opacity-75"
+        className="flex items-center gap-2 text-lg hover:opacity-75"
       >
         <span>←</span>
         <span>Go Back</span>

@@ -1,3 +1,4 @@
+import ReactMarkdown from 'react-markdown'
 import { projectsdata } from '@/data/projects'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
@@ -46,23 +47,23 @@ export default async function ProjectPage({ params }: Props) {
           <ThemeToggle />
           <Link
             href="/"
-            className="flex items-center gap-2 text-base font-extrabold text-[var(--color-header)] hover:underline"
+            className="flex items-center gap-2 text-2xl font-extrabold text-[var(--color-header)] hover:underline"
           >
-            ← Go Back
+            🢀 Go Back
           </Link>
         </div>
       </div>
 
       {/* Contenido principal */}
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 mt-6 lg:min-h-0">
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10 lg:min-h-0">
         {/* COLUMNA IZQUIERDA */}
         <Reveal
           x={-56}
           y={0}
-          className="flex flex-col items-start gap-6 lg:min-h-0"
+          className="flex flex-col items-start justify-center gap-6 lg:min-h-0"
         >
           <div className="flex items-center gap-4">
-            <h1 className="font-title text-2xl lg:text-3xl font-extrabold text-[var(--color-header)] leading-tight">
+            <h1 className="font-title text-2xl lg:text-[3rem] font-extrabold text-[var(--color-header)] leading-tight">
               {title}
             </h1>
             <span className="bg-[var(--color-accent)] text-white text-xs uppercase tracking-wide rounded-full px-4 py-2 whitespace-nowrap">
@@ -89,12 +90,11 @@ export default async function ProjectPage({ params }: Props) {
               className="w-fit flex items-center gap-2 bg-[var(--color-accent)] text-white text-sm rounded-full px-6 py-3 hover:opacity-90 transition-opacity duration-300"
             >
               <svg
-                viewBox="0 0 352 512"
-                fill="currentColor"
-                className="w-4 h-4"
-                aria-hidden="true"
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-4 h-4 fill-white shrink-0"
               >
-                <path d="M176 80c-52.94 0-96 43.06-96 96 0 8.84 7.16 16 16 16s16-7.16 16-16c0-35.3 28.72-64 64-64 8.84 0 16-7.16 16-16s-7.16-16-16-16zM96.06 459.17c0 3.15.93 6.22 2.68 8.84l24.51 36.84c2.97 4.46 7.97 7.14 13.32 7.14h78.85c5.36 0 10.36-2.68 13.32-7.14l24.51-36.84c1.74-2.62 2.67-5.7 2.68-8.84l.05-43.18H96.02l.04 43.18zM176 0C73.72 0 0 82.97 0 176c0 44.37 16.45 84.85 43.56 115.78 16.64 18.99 42.74 58.8 52.42 92.16v.06h48v-.12c-.01-4.77-.72-9.51-2.15-14.07-5.59-17.81-22.82-64.77-62.17-109.67-20.54-23.43-31.52-53.15-31.61-84.14-.2-73.64 59.67-128 127.95-128 70.58 0 128 57.42 128 128 0 30.97-11.24 60.85-31.65 84.14-39.11 44.61-56.42 91.47-62.1 109.46a47.507 47.507 0 0 0-2.22 14.3v.1h48v-.05c9.68-33.37 35.78-73.18 52.42-92.16C335.55 260.85 352 220.37 352 176 352 78.8 273.2 0 176 0z" />
+                <path d="M448 240v96c0 3.084-.356 6.159-1.063 9.162l-32 136C410.686 499.23 394.562 512 376 512H168a40.004 40.004 0 0 1-32.35-16.473l-127.997-176c-12.993-17.866-9.043-42.883 8.822-55.876 17.867-12.994 42.884-9.043 55.877 8.823L104 315.992V40c0-22.091 17.908-40 40-40s40 17.909 40 40v200h8v-40c0-22.091 17.908-40 40-40s40 17.909 40 40v40h8v-24c0-22.091 17.908-40 40-40s40 17.909 40 40v24h8c0-22.091 17.908-40 40-40s40 17.909 40 40zm-256 80h-8v96h8v-96zm88 0h-8v96h8v-96zm88 0h-8v96h8v-96z" />
               </svg>
               Ver proyecto
             </a>
@@ -119,13 +119,15 @@ export default async function ProjectPage({ params }: Props) {
           x={56}
           y={0}
           delay={120}
-          className="flex flex-col items-start gap-4 lg:min-h-0 lg:overflow-y-auto"
+          className="flex flex-col justify-center gap-8 w-full lg:min-h-0 lg:overflow-y-auto"
         >
           <div className="flex flex-col gap-2 w-full">
             <h2 className="font-title text-xl font-bold text-[var(--color-header)]">
               Más detalles
             </h2>
-            <p className="text-sm leading-relaxed">{description}</p>
+            <div className="prose-blog text-lg space-y-8 leading-relaxed">
+              <ReactMarkdown>{description}</ReactMarkdown>
+            </div>
           </div>
 
           {gallery.length > 0 && (

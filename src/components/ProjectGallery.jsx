@@ -34,11 +34,11 @@ export default function ProjectGallery({ images, title }) {
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-3 gap-3">
         {images.map((img, index) => (
           <div
             key={img}
-            className="group relative w-full h-32 rounded-lg overflow-hidden border border-[var(--foreground)] cursor-pointer"
+            className="group relative w-full aspect-2/1 rounded-lg overflow-hidden border border-[var(--foreground)] cursor-pointer"
             onClick={() => setSelectedIndex(index)}
           >
             <Image
@@ -46,10 +46,10 @@ export default function ProjectGallery({ images, title }) {
               alt={`${title} - imagen ${index + 1}`}
               fill
               loading="lazy"
-              sizes="(max-width: 1024px) 45vw, 22vw"
+              sizes="(max-width: 1024px) 33vw, 22vw"
               className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+            <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/30 mix-blend-multiply transition-colors duration-300" />
           </div>
         ))}
       </div>
