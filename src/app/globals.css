@@ -1,0 +1,189 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #0033a0;
+  --color-text: #3a3a3a;
+  --color-header: #0033a0;
+  --color-accent: #0033a0;
+  --color-surface: #ffffff;
+  color-scheme: light;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-outfit);
+  --font-title: var(--font-syne);
+}
+
+.dark {
+  --background: #1b2333;
+  --foreground: #8ba3e8;
+  --color-text: #c5cde0;
+  --color-header: #8ba3e8;
+  --color-accent: #2f5bb8;
+  --color-surface: #242c40;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --background: #1b2333;
+    --foreground: #8ba3e8;
+    --color-text: #c5cde0;
+    --color-header: #8ba3e8;
+    --color-accent: #2f5bb8;
+    --color-surface: #242c40;
+    color-scheme: dark;
+  }
+}
+
+.card-surface {
+  background: var(--color-surface);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--reveal-x, 0px), var(--reveal-y, 48px), 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .reveal-scroll {
+    animation: reveal-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-scroll {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.prose-blog h2 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-header);
+  margin-top: 0.5rem;
+}
+
+.prose-blog h3 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-header);
+}
+
+.prose-blog a {
+  color: var(--color-header);
+  text-decoration: underline;
+}
+
+.prose-blog ul,
+.prose-blog ol {
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.prose-blog ul {
+  list-style: disc;
+}
+
+.prose-blog ol {
+  list-style: decimal;
+}
+
+.prose-blog strong {
+  font-weight: 700;
+}
+
+.prose-blog blockquote {
+  border-left: 3px solid var(--color-header);
+  padding-left: 1rem;
+  font-style: italic;
+}
+
+/* Contenedor principal del bloque de código */
+pre {
+  background-color: #0f172a; /* Fondo azul noche oscuro */
+  color: #e2e8f0; /* Texto gris claro/blanco */
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+
+  /* --- CONTROL DE SCROLL Y ALTURA --- */
+  max-height: 400px; /* Limita la altura del cuadro (puedes cambiarlo a tu gusto, ej: 450px o 30rem) */
+  overflow-y: auto; /* Scroll vertical si el código es muy largo */
+  overflow-x: auto; /* Scroll horizontal si las líneas son muy anchas */
+
+  margin: 1.5rem 0;
+  position: relative;
+  border: 1px solid #1e293b;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Tipografía del código */
+pre code {
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Pequeña etiqueta visual arriba a la derecha que indica que es código */
+pre::before {
+  content: 'Code';
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  background-color: #0f172a; /* Mismo fondo para que no se mezcle con el código al hacer scroll */
+  padding-left: 0.5rem;
+  z-index: 5;
+}
+
+/* Personalización de las barras de desplazamiento (Scrollbars) */
+pre::-webkit-scrollbar {
+  width: 8px; /* Ancho de la barra vertical */
+  height: 8px; /* Alto de la barra horizontal */
+}
+pre::-webkit-scrollbar-track {
+  background: #0f172a;
+  border-radius: 0.5rem;
+}
+pre::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+pre::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
