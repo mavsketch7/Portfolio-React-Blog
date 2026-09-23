@@ -27,7 +27,8 @@ export default async function About() {
           más de 3 años de experiencia, he trabajado con comercios locales,
           estudios creativos y empresas técnicas. Tengo formación en
           Administración de Empresas, lo que me permite entender tus proyectos
-          desde el lado del negocio, no solo desde el diseño y con nivel B2 de Inglés con certificado de Cambridge. 
+          desde el lado del negocio, no solo desde el diseño.
+          Tambien hablo inglés, cuento con nivel B2 de Inglés con certificado de Cambridge, con posibilidad de gestionar proyectos internacionales.
         </p>
         <div>
           {stacks.map(({ name }) => (
