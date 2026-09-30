@@ -8,6 +8,11 @@ export async function apiFetch<T>(
   options?: { tag?: string; revalidate?: number },
 ): Promise<T> {
   const response = await fetch(`${API_URL}/api${path}`, {
+    // BanaHosting bloquea peticiones sin User-Agent (las trata como escaneos).
+    // El fetch nativo de Node/Vercel no manda uno por defecto.
+    headers: {
+      'User-Agent': 'PortfolioNextApp/1.0 (+https://manualbaweb.com)',
+    },
     // En local, sin caché: así el panel y el sitio se ven sincronizados al
     // instante. En producción, ISR con revalidate/tags como de costumbre.
     cache: isDev ? 'no-store' : undefined,
