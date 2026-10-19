@@ -24,7 +24,7 @@ export default function Contact() {
       </Reveal>
       <Reveal delay={120}>
         <a
-          href="mailto:mavsketch@gmail.com"
+          href="mailto:contacto@manualbaweb.com"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-[#3a3a3a] text-white text-sm rounded-full px-6 py-3 hover:bg-white hover:text-black transition-colors duration-300 text-center"
